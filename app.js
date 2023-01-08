@@ -4,10 +4,17 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const _ = require("lodash");
+require("dotenv").config();
+console.log(process.env);
 
 const port = process.env.PORT || 3000;
 
 const app = express();
+
+// Set up mongoose connection
+
+const mongoDB = process.env.MONGODB_URI;
+
 
 app.set("view engine", "ejs");
 
@@ -15,9 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 mongoose.set("strictQuery", false);
 
-mongoose.connect(
-  "mongodb+srv://admin:Mongokopassw0rd@cluster0.c49svk4.mongodb.net/todolistDB"
-);
+mongoose.connect(mongoDB);
 
 
 
@@ -28,7 +33,7 @@ const itemsSchema = {
 const Item = mongoose.model("Item", itemsSchema);
 
 const item1 = new Item({
-  name: "Welcome to your To-do list.",
+  name: "Welcome to the To-do list app.",
 });
 
 const item2 = new Item({
@@ -36,7 +41,7 @@ const item2 = new Item({
 });
 
 const item3 = new Item({
-  name: "<--- Hit this to delete an item from the list.",
+  name: "<--- Check the box to delete an item from the list.",
 });
 
 const defaultItems = [item1, item2, item3];
@@ -182,5 +187,5 @@ app.get("/about", function (req, res) {
 });
 
 app.listen(port, function () {
-  console.log("Server started on port 3000");
+  console.log("Server started on " + port );
 });
