@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const _ = require("lodash");
 require("dotenv").config();
-console.log(process.env);
+// console.log(process.env);
 
 const port = process.env.PORT || 3000;
 
@@ -22,7 +22,20 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 mongoose.set("strictQuery", false);
 
-mongoose.connect(mongoDB);
+// mongoose.connect(mongoDB);
+
+
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(mongoDB);
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
+  } catch (error) {
+    console.log(error);
+    process.exit(1);
+  }
+};
+
+
 
 
 
@@ -186,6 +199,14 @@ app.get("/about", function (req, res) {
   res.render("about");
 });
 
-app.listen(port, function () {
-  console.log("Server started on " + port );
+
+
+connectDB().then(() => {
+  app.listen(port, () => {
+    console.log("Server Started with database");
+  });
 });
+
+// app.listen(port, function () {
+//   console.log("Server started on " + port );
+// });
