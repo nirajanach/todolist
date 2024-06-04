@@ -5,7 +5,7 @@
 ## Overview
 
 The TodoList app is a simple yet powerful task management tool built using React and MongoDB. It allows users to create, and delete tasks after they have been completed, helping them stay organized and productive.
-It can also be used as Grocery App for convenience. If you would like to make it personal then add your desired username with the slash character ('/') after the website url. The app is live and can be accessed at [todolists.cyclic.app](https://todolists.cyclic.app/).
+It can also be used as Grocery App for convenience. If you would like to make it personal then add your desired username with the slash character ('/') after the website url. The app is live and can be accessed at [todolist-v30g0x7r.b4a.run/](https://todolist-v30g0x7r.b4a.run/).
 
 ## Features
 
@@ -52,7 +52,7 @@ The backend of this TodoList app is powered by MongoDB, Express, and Node.js. Yo
 
 ## Deployment
 
-The app is currently deployed and live at [todolists.cyclic.app](https://todolists.cyclic.app). It is hosted using [Cyclic Hosting platform] and automatically deploys changes from the main branch.
+The app is currently deployed and live at [todolist-v30g0x7r.b4a.run/](https://todolist-v30g0x7r.b4a.run/). It is hosted using [Cyclic Hosting platform] and automatically deploys changes from the main branch.
 
 
 ## License
