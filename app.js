@@ -81,7 +81,7 @@ app.get("/", function (req, res) {
       });
       res.redirect("/");
     } else {
-      res.render("list", { listTitle: "Today", newListItems: foundItems });
+      res.render("list", { listTitle: "To-do lists", newListItems: foundItems });
       // console.log(foundItems);
     }
   });
